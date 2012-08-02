@@ -23,3 +23,6 @@ web1:
   after_deploy:
     - "rm -f storage/cache/*"
     - "rm -f storage/views/*"
+db1:
+  name: blog            
+  type: mysql
