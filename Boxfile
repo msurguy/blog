@@ -2,7 +2,7 @@ global:
   env:
     - LARAVEL_ENV: production
 web1:
-  name: cute-blog
+  name: laravel-blog
   shared_writable_dirs:
     - /storage/cache
     - /storage/database
@@ -17,9 +17,3 @@ web1:
     - mcrypt
     - eaccelerator
     - memcached
-  before_deploy:
-    - "php artisan migrate:install"
-    - "php artisan migrate"
-  after_deploy:
-    - "rm -f storage/cache/*"
-    - "rm -f storage/views/*"
