@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Laravel Blog : Simple Blog made in Laravel" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Laravel Blog</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/msurguy/blog">View on GitHub</a>
+
+          <h1 id="project_title">Laravel Blog</h1>
+          <h2 id="project_tagline">Simple Blog made in Laravel</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/msurguy/blog/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/msurguy/blog/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Simple Blog built on Laravel PHP Framework.</h1>
+
+<p>Tutorial and a screencast are on Udemy: <a href="http://www.udemy.com/develop-web-apps-with-laravel-php-framework/">http://www.udemy.com/develop-web-apps-with-laravel-php-framework/</a>  &lt;- Laravel tutorials and a course by msurguy</p>
+
+<p>The blog features are :</p>
+
+<ul>
+<li>twitter bootstrap layout implemented by bootstrapper bundle</li>
+<li>user log in and authentification </li>
+<li>display all posts in paginated view</li>
+<li>create new posts</li>
+<li>delete posts</li>
+</ul><p>To get this blog working on your local machine first get Laravel up and running (Tutorial here <a href="http://maxoffsky.com/tech-blog/getting-laravel-up-and-running-on-local-or-cloud-service/">http://maxoffsky.com/tech-blog/getting-laravel-up-and-running-on-local-or-cloud-service/</a> )</p>
+
+<p>Copy this folder or create a symbolic link to your server's htdocs or www folder.</p>
+
+<p>Create a database "blog" and make sure your database settings in config -&gt; database.php match your database setup.</p>
+
+<p>Then run migrations in the terminal or command line to set up tables from migrations: </p>
+
+<pre>
+php artisan migrate:install
+php artisan migrate
+</pre>
+
+<p>If everything is alright, you should see that migration tables are created successfully.</p>
+
+<p>Then in your browser navigate to where your folder is on your server, and in the "public" of that folder (in my case it is localhost/blog/public). You should see an empty blog.
+Click Login on the top right, and then login with the following username and password:</p>
+
+<pre>
+admin
+password
+</pre>
+
+<p>That's it, you should be able to post and delete entries now!</p>
+
+<h2>Contributing to This code</h2>
+
+<p>Contributions are encouraged and welcome. Submit pull requests or ask questions if something's not clear</p>
+
+<h2>License</h2>
+
+<p>This Blog is open source and is under MIT license.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Laravel Blog maintained by <a href="https://github.com/msurguy">msurguy</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
