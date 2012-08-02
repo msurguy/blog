@@ -12,5 +12,5 @@ return array(
             'password' => $_SERVER['DB1_PASS'],
             'charset'  => 'utf8',
             'prefix'   => '',
-        ),
+        ))
 );
