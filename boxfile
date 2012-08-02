@@ -1,0 +1,25 @@
+global:
+  env:
+    - LARAVEL_ENV: production
+web1:
+  name: cute-blog
+  shared_writable_dirs:
+    - /storage/cache
+    - /storage/database
+    - /storage/logs
+    - /storage/sessions
+    - /storage/views
+    - /storage/work
+  document_root: /public
+  php_version: 5.3.8
+  php_extensions:
+    - pdo_mysql
+    - mcrypt
+    - eaccelerator
+    - memcached
+  before_deploy:
+    - "php artisan migrate:install"
+    - "php artisan migrate"
+  after_deploy:
+    - "rm -f storage/cache/*"
+    - "rm -f storage/views/*"
