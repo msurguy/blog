@@ -29,6 +29,6 @@
     	<div class="row">
     		<div class="span8">
 	    		{{ $posts -> links(); }}
-	   		 </div
+	   		 </div>
 		</div>
 @endsection
