@@ -13,20 +13,52 @@ Route::get('admin', array('before' => 'auth', 'do' => function() {
     return View::make('new')->with('user', $user);
 }));
 
-/* grouping routes 
-Route::group(array('before' => 'auth'), function()
-{
-    Route::get('panel', function()
-    {
-        //
-    });
+Route::get('post/(:num)', array('before' => 'auth', 'do' => function($id){
 
-    Route::get('dashboard', function()
+    $user = Auth::user();
+    $view_post = Post::with('user')->find($id);
+    return View::make('edit')
+            ->with('user', $user)
+            ->with('success_message', true)
+            ->with('post', $view_post);
+})) ;
+
+Route::put('post/(:num)', array('before' => 'auth', 'do' => function($id){
+    
+    $post_title = Input::get('post_title');
+    $post_body = Input::get('post_body');
+    $post_author = Input::get('post_author');
+    $edit_post = array(
+        'post_title'    => $post_title,
+        'post_body'     => $post_body,
+        'post_author'   => $post_author
+    );
+   
+    $rules = array(
+        'post_title'     => 'required|min:3|max:255',
+        'post_body'      => 'required|min:10'
+    );
+    
+    $validation = Validator::make($edit_post, $rules);
+    if ( $validation -> fails() )
     {
-        //
-    });
-});
-*/
+        
+        return Redirect::to('post/'.$id)
+                ->with('user', Auth::user())
+                ->with_errors($validation)
+                ->with_input();
+    }
+    // save the post after passing validation
+    $post = Post::with('user')->find($id);
+    $post->post_title = $post_title;
+    $post->post_body = $post_body;
+    $post->post_author = $post_author;
+    $post->save();
+    // redirect to viewing all posts
+    return Redirect::to('/');
+
+})) ;
+
 
 Route::delete('post/(:num)', array('before' => 'auth', 'do' => function($id){
     $delete_post = Post::with('user')->find($id);
