@@ -3,7 +3,7 @@
 	
  	@if (Session::has('success_message'))
  		<div class="span8">
-        {{ Alert::success("Success! Post deleted!") }}
+        {{ Alert::success("Success!") }}
     	</div>
     @endif
 

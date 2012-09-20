@@ -19,7 +19,6 @@ Route::get('post/(:num)', array('before' => 'auth', 'do' => function($id){
     $view_post = Post::with('user')->find($id);
     return View::make('edit')
             ->with('user', $user)
-            ->with('success_message', true)
             ->with('post', $view_post);
 })) ;
 
@@ -55,7 +54,7 @@ Route::put('post/(:num)', array('before' => 'auth', 'do' => function($id){
     $post->post_author = $post_author;
     $post->save();
     // redirect to viewing all posts
-    return Redirect::to('/');
+    return Redirect::to('/')->with('success_message', true);
 
 })) ;
 
